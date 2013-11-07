@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+<script type="text/javascript">
+	window.onload = function ()	{
+		var starter = document.getElementById('starter');
+		var input = document.getElementById("timer");
+
+		
+		starter.addEventListener("click", function(event){
+			event.preventDefault()
+
+			var countdown = window.setInterval(function() {
+				var count = parseInt(input.value);
+				count = count - 1;
+
+				if (count == 0) {
+					input.value = count;
+					alert("Time's up!");
+					clearInterval(countdown);
+				} else {
+					input.value = count;
+				}
+
+			}, 1000);
+
+		});
+	}
+
+</script>
+<head>
+
+<title>Countdown</title>
+
+<meta name="description" content="Description goes here."/>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css" media="screen"/>
+
+<link rel="stylesheet" href="css/main.css"/>
+
+
+</head>
+
+
+
+<body>
+	<div class="form">
+	<h1>Let the countdown begin!</h1>
+	<form id="countdown-form">
+		<input id="timer" placeholder="Please enter a number" />
+		<button id="starter">Start</button>
+		<button id="stopper">Stop</button>
+	</form>
+	</div>
+
+</body>
+</html>
